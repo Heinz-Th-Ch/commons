@@ -5,9 +5,10 @@ package dataStructures;
  */
 public class CommonValues {
 
-    public static final String PROPERTY_LOG_FILE_PATH = "file.path";
+    public static final String PROPERTY_LOG_FILE_PATH = "logfile.path";
     public static final String PROPERTY_LOG_FILE_NAME = "logfile.filename";
 
+    public static final String DIRECTORY_PLACE_HOLDER = "{&workinglevel}";
     public static final String TIME_STAMP_PLACE_HOLDER = "{&timestamp}";
 
 }

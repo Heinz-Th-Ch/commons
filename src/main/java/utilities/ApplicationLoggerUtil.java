@@ -1,7 +1,6 @@
 package utilities;
 
 import com.google.common.annotations.VisibleForTesting;
-import dataStructures.CommonValues;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.log4j.lf5.LogLevel;
 import org.slf4j.Logger;
@@ -194,34 +193,25 @@ public class ApplicationLoggerUtil {
             if (value != null) {
                 if (value.length() > CALLER_LENGTH) {
                     String[] splitter = value.split(Pattern.quote("."));
-                    value = "";
+                    StringBuilder valueBuilder = new StringBuilder();
                     for (int i = 0; i < splitter.length; i++) {
                         if (i < (splitter.length) - 1) {
-                            value += splitter[i].substring(0, 1);
-                            value += ".";
+                            valueBuilder.append(splitter[i].charAt(0));
+                            valueBuilder.append(".");
                         } else {
-                            value += splitter[i];
+                            valueBuilder.append(splitter[i]);
                         }
                     }
+                    value = valueBuilder.toString();
                     if (value.length() > CALLER_LENGTH) {
                         value = CALLER_REPLACING_VALUE + value.substring(value.length() - (CALLER_LENGTH - CALLER_REPLACING_VALUE.length()));
                     }
                 }
-                while (value.length() < CALLER_LENGTH) {
-                    value = " " + value;
+                StringBuilder valueBuilder = new StringBuilder(value);
+                while (valueBuilder.length() < CALLER_LENGTH) {
+                    valueBuilder.insert(0, ' ');
                 }
-            }
-            return value;
-        }
-
-        private String prepareCallerValue2(String value, Integer length) {
-            if (value != null && length != null) {
-                if (value.length() > length) {
-                    value = CALLER_REPLACING_VALUE + value.substring(value.length() - (length - CALLER_REPLACING_VALUE.length()));
-                }
-                while (value.length() < length) {
-                    value = " " + value;
-                }
+                value = valueBuilder.toString();
             }
             return value;
         }

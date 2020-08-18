@@ -6,13 +6,13 @@ package enumerations;
  */
 public enum WorkingLevel {
 
-    DEV("local", "development/"),
+    DEV("local", "development"),
 
-    INT("int", "integration/"),
+    INT("int", "integration"),
 
-    PROD("prod", "production/"),
+    PROD("prod", "production"),
 
-    TEST("test", "test/");
+    TEST("test", "test");
 
     private final String workingMode;
     private final String directoryName;
