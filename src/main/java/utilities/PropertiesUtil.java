@@ -3,6 +3,7 @@ package utilities;
 import com.google.common.annotations.VisibleForTesting;
 import exceptions.IllegalInstantiationException;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -18,8 +19,7 @@ public class PropertiesUtil {
     }
 
     public static void loadProperties(Properties properties, String fileName) throws IOException {
-        ClassLoader loader = Thread.currentThread().getContextClassLoader();
-        InputStream stream = loader.getResourceAsStream(fileName);
+        FileInputStream stream = new FileInputStream(fileName);
         properties.load(stream);
         stream.close();
     }

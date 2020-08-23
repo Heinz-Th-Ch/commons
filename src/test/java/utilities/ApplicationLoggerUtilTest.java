@@ -13,8 +13,6 @@ import java.io.IOException;
 
 public class ApplicationLoggerUtilTest extends AbstractPlainJava {
 
-    private final static String TEST_FILE_PATH = "target/test-classes/";
-
     private final static String PROPERTY_FILE_NAME = "log4j.properties";
     private final static String LOG_FILE_NAME_1 = "ApplicationLoggerUtilTest-" + CommonValues.TIME_STAMP_PLACE_HOLDER + "-1.log";
     private final static String LOG_FILE_NAME_2 = "ApplicationLoggerUtilTest-2.log";
@@ -27,18 +25,9 @@ public class ApplicationLoggerUtilTest extends AbstractPlainJava {
 
     private ApplicationLoggerUtil loggerUtil;
 
-    /**
-     * This method is used from test environment clean up functions.
-     *
-     * @return the file name with path
-     */
-    public static Pair<String, String> getFileNameFilter() {
-        return Pair.of(TEST_FILE_PATH, LOG_FILE_NAME_FILTER);
-    }
-
     @Before
     public void setUp() throws Exception {
-        FileOutputStream stream = new FileOutputStream(TEST_FILE_PATH + PROPERTY_FILE_NAME);
+        FileOutputStream stream = new FileOutputStream(getTestDataPath() + PROPERTY_FILE_NAME);
         stream.write(ROOT_CATEGORY.getBytes());
         stream.write(APPENDER.getBytes());
         stream.write(LAYOUT.getBytes());
@@ -70,7 +59,7 @@ public class ApplicationLoggerUtilTest extends AbstractPlainJava {
 
     @Test
     public void info() throws IOException {
-        loggerUtil.setLogOutputStream(TEST_FILE_PATH, LOG_FILE_NAME_1);
+        loggerUtil.setLogOutputStream(getTestDataPath(), LOG_FILE_NAME_1);
         loggerUtil.info("text for formatting a value: {}, {}",
                 "info()",
                 Long.valueOf("247"));
@@ -124,7 +113,7 @@ public class ApplicationLoggerUtilTest extends AbstractPlainJava {
 
     @Test
     public void writeRecordToFileRealWrittenToFile() throws IOException {
-        loggerUtil.setLogOutputStream(TEST_FILE_PATH, LOG_FILE_NAME_1);
+        loggerUtil.setLogOutputStream(getTestDataPath(), LOG_FILE_NAME_1);
         loggerUtil.writeRecordToFile(LogLevel.DEBUG,
                 null,
                 null,
@@ -148,7 +137,7 @@ public class ApplicationLoggerUtilTest extends AbstractPlainJava {
         assertEquals("wrong size of list",
                 1,
                 ApplicationLoggerUtil.logRecords.size());
-        loggerUtil.setLogOutputStream(TEST_FILE_PATH, LOG_FILE_NAME_1);
+        loggerUtil.setLogOutputStream(getTestDataPath(), LOG_FILE_NAME_1);
         loggerUtil.writeRecordToFile(LogLevel.DEBUG,
                 null,
                 null,
@@ -161,11 +150,11 @@ public class ApplicationLoggerUtilTest extends AbstractPlainJava {
     }
 
     @Test
-    public void setLogOutputStream() throws FileNotFoundException {
-        loggerUtil.setLogOutputStream(TEST_FILE_PATH, LOG_FILE_NAME_1);
+    public void setLogOutputStream() throws IOException {
+        loggerUtil.setLogOutputStream(getTestDataPath(), LOG_FILE_NAME_1);
         assertNotNull("file output stream not set", ApplicationLoggerUtil.logOutputStream);
         FileOutputStream oldStream = ApplicationLoggerUtil.logOutputStream;
-        loggerUtil.setLogOutputStream(TEST_FILE_PATH, LOG_FILE_NAME_2);
+        loggerUtil.setLogOutputStream(getTestDataPath(), LOG_FILE_NAME_2);
         assertEquals("file output stream changed", oldStream, ApplicationLoggerUtil.logOutputStream);
     }
 
