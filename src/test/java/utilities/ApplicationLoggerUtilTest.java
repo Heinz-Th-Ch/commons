@@ -11,6 +11,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+/**
+ * JUnit test for {@link ApplicationLoggerUtil}.
+ */
 public class ApplicationLoggerUtilTest extends AbstractPlainJava {
 
     private final static String PROPERTY_FILE_NAME = "log4j.properties";
