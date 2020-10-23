@@ -8,7 +8,8 @@ import org.junit.Test;
  */
 public class WorkingLevelTest extends AbstractPlainJava {
 
-    private static final int FIX_LENGTH = 4;
+    private final int NUMBER_OF_ENTRIES = 4;
+
     public static final String DEVELOPMENT = "development";
     public static final String INT = "int";
     public static final String INTEGRATION = "integration";
@@ -17,6 +18,14 @@ public class WorkingLevelTest extends AbstractPlainJava {
     public static final String PRODUCTION = "production";
     public static final String TEST = "test";
 
+
+
+    @Test
+    public void testNumberOfValues() {
+        assertEquals("invalid number of values",
+                NUMBER_OF_ENTRIES,
+                WorkingLevel.values().length);
+    }
 
     @Test
     public void getWorkingMode() {
@@ -34,8 +43,4 @@ public class WorkingLevelTest extends AbstractPlainJava {
         assertEquals("invalid directory name for enum TEST", TEST, WorkingLevel.valueOf("TEST").getDirectoryName());
     }
 
-    @Test
-    public void values() {
-        assertEquals("invalid size of enumeration", FIX_LENGTH, WorkingLevel.values().length);
-    }
 }
