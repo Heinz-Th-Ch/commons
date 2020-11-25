@@ -7,7 +7,6 @@ import org.apache.log4j.lf5.LogLevel;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -16,6 +15,7 @@ import java.io.IOException;
  */
 public class ApplicationLoggerUtilTest extends AbstractPlainJava {
 
+    private final static String PROPERTY_PATH_NAME = "./resources/";
     private final static String PROPERTY_FILE_NAME = "log4j.properties";
     private final static String LOG_FILE_NAME_1 = "ApplicationLoggerUtilTest-" + CommonValues.TIME_STAMP_PLACE_HOLDER + "-1.log";
     private final static String LOG_FILE_NAME_2 = "ApplicationLoggerUtilTest-2.log";
@@ -30,7 +30,7 @@ public class ApplicationLoggerUtilTest extends AbstractPlainJava {
 
     @Before
     public void setUp() throws Exception {
-        FileOutputStream stream = new FileOutputStream(getTestDataPath() + PROPERTY_FILE_NAME);
+        FileOutputStream stream = new FileOutputStream(PROPERTY_PATH_NAME + PROPERTY_FILE_NAME);
         stream.write(ROOT_CATEGORY.getBytes());
         stream.write(APPENDER.getBytes());
         stream.write(LAYOUT.getBytes());

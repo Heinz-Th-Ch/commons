@@ -1,8 +1,9 @@
 package utilities;
 
-import com.google.common.annotations.VisibleForTesting;
 import org.apache.commons.lang3.tuple.Pair;
+import org.apache.log4j.PropertyConfigurator;
 import org.apache.log4j.lf5.LogLevel;
+import org.jetbrains.annotations.VisibleForTesting;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.helpers.FormattingTuple;
@@ -25,7 +26,11 @@ import static org.apache.log4j.lf5.LogLevel.*;
  */
 public class ApplicationLoggerUtil {
 
+    @VisibleForTesting
+    protected static final String JOG4J_PROPERTY_FILE_NAME = "./resources/log4j.properties";
+
     private static final SimpleDateFormat TIME_STAMP_FORMAT = new SimpleDateFormat("yyyy-MM-dd_HH.mm.ss.SSS");
+
     @VisibleForTesting
     protected static List<String> logRecords = new ArrayList<>(List.of());
     @VisibleForTesting
@@ -35,6 +40,7 @@ public class ApplicationLoggerUtil {
 
     public ApplicationLoggerUtil(Class<?> classOfCaller) {
         logger = LoggerFactory.getLogger(classOfCaller);
+        PropertyConfigurator.configure(JOG4J_PROPERTY_FILE_NAME);
     }
 
     public void debug(String text, Object... objects) throws IOException {

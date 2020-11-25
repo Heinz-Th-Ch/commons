@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
  */
 public class PropertyKeysTest extends AbstractPlainJava {
 
-    private final static int NUMBER_OF_ENTRIES = 16;
+    private final static int NUMBER_OF_ENTRIES = 20;
 
     @Test
     public void testNumberOfValues(){
