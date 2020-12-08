@@ -6,9 +6,10 @@ package enumerations;
 public enum PropertyKeys {
 
     PROPERTY_CSV_BALL_CHARACTERISTICS_FILE_NAME("csvfile.ballcharacteristics.filename"),
+    PROPERTY_CSV_CONTENT_OF_SUIT_CASE_FILE_NAME("csvfile.contentOfSuitCase.filename"),
     PROPERTY_CSV_CRAZY_GOLF_SITE_CHARACTERISTICS_FILE_NAME("csvfile.crazygolfsitecharacteristics.filename"),
+    PROPERTY_CSV_FILE_ENLARGEMENT_PATH("csvfile.enlargement.path"),
     PROPERTY_CSV_FILE_PATH("csvfile.path"),
-    PROPERTY_CSV_SUITCASE_CHARACTERISTICS_FILE_NAME("csvfile.suitcasecharacteristics.filename"),
 
     PROPERTY_DATA_BALL_CHARACTERISTICS_FILE_NAME("datafile.ballcharacteristics.filename"),
     PROPERTY_DATA_CRAZY_GOLF_SITE_CHARACTERISTICS_FILE_NAME("datafile.crazygolfsitecharacteristics.filename"),
@@ -21,6 +22,9 @@ public enum PropertyKeys {
 
     PROPERTY_LOG_FILE_NAME("logfile.filename"),
     PROPERTY_LOG_FILE_PATH("logfile.path"),
+
+    PROPERTY_PDF_CRAZY_GOLF_ADMIN_SUMMARY_FILE_NAME("pdffile.crazyGolfAdminSummary.filename"),
+    PROPERTY_PDF_FILE_ENLARGEMENT_PATH("pdffile.enlargement.path"),
 
     PROPERTY_REMOTEAPPLICATION_INTERNAL_SERVER_HOSTNAME("remoteapplication.internal.server.hostname"),
     PROPERTY_REMOTEAPPLICATION_INTERNAL_SERVER_PORT("remoteapplication.internal.server.port"),

@@ -8,7 +8,7 @@ import org.junit.Test;
  */
 public class CommonValuesTest extends AbstractPlainJava {
 
-    private final int NUMBER_OF_FIELDS = 2;
+    private final int NUMBER_OF_FIELDS = 4;
 
     @Test
     public void testNumberOfValues() {
