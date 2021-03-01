@@ -8,7 +8,7 @@ import org.junit.Test;
  */
 public class PropertyKeysTest extends AbstractPlainJava {
 
-    private final static int NUMBER_OF_ENTRIES = 23;
+    private final static int NUMBER_OF_ENTRIES = 24;
 
     @Test
     public void testNumberOfValues() {

@@ -24,6 +24,7 @@ public enum PropertyKeys {
     PROPERTY_LOG_FILE_PATH("logfile.path"),
 
     PROPERTY_PDF_CRAZY_GOLF_ADMIN_SUMMARY_FILE_NAME("pdffile.crazyGolfAdminSummary.filename"),
+    PROPERTY_PDF_FILE_DATA_ENCRYPTION("pdffile.data.encryption"),
     PROPERTY_PDF_FILE_ENLARGEMENT_PATH("pdffile.enlargement.path"),
 
     PROPERTY_REMOTEAPPLICATION_INTERNAL_SERVER_HOSTNAME("remoteapplication.internal.server.hostname"),
