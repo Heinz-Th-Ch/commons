@@ -17,7 +17,7 @@ public class IncompatibleClassExceptionTest extends AbstractPlainJava {
         try {
             throw new IncompatibleClassException(TEST_MESSAGE);
         } catch (IncompatibleClassException ex) {
-            assertEquals("",TEST_MESSAGE,ex.getMessage());
+            assertEquals("expected message not received",TEST_MESSAGE,ex.getMessage());
         }
     }
 

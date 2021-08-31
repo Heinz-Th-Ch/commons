@@ -15,7 +15,7 @@ public class IllegalInstantiationExceptionTest extends AbstractPlainJava {
         try {
             throw new IllegalInstantiationException(TEST_MESSAGE);
         } catch (IllegalInstantiationException ex) {
-            assertEquals("",TEST_MESSAGE,ex.getMessage());
+            assertEquals("expected message not received",TEST_MESSAGE,ex.getMessage());
         }
     }
 

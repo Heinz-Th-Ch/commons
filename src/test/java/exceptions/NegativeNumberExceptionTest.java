@@ -15,7 +15,7 @@ public class NegativeNumberExceptionTest extends AbstractPlainJava {
         try {
             throw new NegativeNumberException(TEST_MESSAGE);
         } catch (NegativeNumberException ex) {
-            assertEquals("",TEST_MESSAGE,ex.getMessage());
+            assertEquals("expected message not received",TEST_MESSAGE,ex.getMessage());
         }
     }
 
