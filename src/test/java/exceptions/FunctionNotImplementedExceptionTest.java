@@ -4,17 +4,17 @@ import abstracts.AbstractPlainJava;
 import org.junit.Test;
 
 /**
- * JUnit test for {@link IncompatibleClassException}.
+ * JUnit test for {@link FunctionNotImplementedException}.
  */
-public class IncompatibleClassExceptionTest extends AbstractPlainJava {
+public class FunctionNotImplementedExceptionTest extends AbstractPlainJava {
 
     private static final String TEST_MESSAGE = "TEST_MESSAGE";
 
     @Test
     public void getWithMessage() {
         try {
-            throw new IncompatibleClassException(TEST_MESSAGE);
-        } catch (IncompatibleClassException ex) {
+            throw new FunctionNotImplementedException(TEST_MESSAGE);
+        } catch (FunctionNotImplementedException ex) {
             assertEquals("expected message not received", TEST_MESSAGE, ex.getMessage());
         }
     }
@@ -22,8 +22,8 @@ public class IncompatibleClassExceptionTest extends AbstractPlainJava {
     @Test
     public void getWithoutMessage() {
         try {
-            throw new IncompatibleClassException();
-        } catch (IncompatibleClassException ex) {
+            throw new FunctionNotImplementedException();
+        } catch (FunctionNotImplementedException ex) {
             assertNull(ex.getMessage());
         }
     }
